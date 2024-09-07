@@ -18,11 +18,43 @@ namespace NguyenDucAnh.Areas.Admin.Controllers
             var data = db.NHAXUATBANs.ToList();
             return View(data);
         }
-        public ActionResult Details()
+        public ActionResult Details(int id)
         {
-            int maNXB = int.Parse(Request.QueryString["id"]);
-            var kq = db.NHAXUATBANs.Where(nxb=>nxb.MaNXB ==maNXB).SingleOrDefault();
+
+            //int maNXB = int.Parse(Request.QueryString["id"]);
+            var kq = db.NHAXUATBANs.Where(nxb=>nxb.MaNXB == id).SingleOrDefault();
             return View(kq);
+        }
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Luu(FormCollection f) 
+        {
+            NHAXUATBAN nxb = new NHAXUATBAN();
+            nxb.TenNXB = f["TenNXB"];
+            nxb.DiaChi = f["DiaChi"];
+            nxb.DienThoai = f["DienThoai"];
+            
+            db.NHAXUATBANs.Add(nxb);
+            db.SaveChanges();
+            return View("Create");
+        }
+        [HttpPost]
+        public ActionResult Create(NHAXUATBAN nxb)
+        {
+           
+            db.NHAXUATBANs.Add(nxb);
+            db.SaveChanges();
+            return RedirectToAction("Index", "NhaXuatBan");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id) 
+        { 
+            return View()
         }
     }
 }
