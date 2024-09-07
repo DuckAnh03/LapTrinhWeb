@@ -274,6 +274,7 @@
     <Content Include="Areas\Admin\Views\NhaXuatBan\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NhaXuatBan\Details.cshtml" />
     <Content Include="Areas\Admin\Views\NhaXuatBan\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaXuatBan\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

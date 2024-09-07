@@ -13,7 +13,6 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
         <br />
         <a href="~/Admin/NhaXuatBan/Create">Tạo mới</a>|
     </p>
@@ -49,10 +48,10 @@
                 @Html.DisplayFor(modelItem => item.DienThoai)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+                <a href="~/Admin/NhaXuatBan/Edit?id=@item.MaNXB">Chỉnh sửa</a>|
                 <a href="~/Admin/NhaXuatBan/Details?id=@item.MaNXB">Xem chi tiết</a>|
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+
+                
             </td>
         </tr>
     }

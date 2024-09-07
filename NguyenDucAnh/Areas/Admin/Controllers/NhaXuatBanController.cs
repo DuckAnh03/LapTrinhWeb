@@ -22,7 +22,7 @@ namespace NguyenDucAnh.Areas.Admin.Controllers
         {
 
             //int maNXB = int.Parse(Request.QueryString["id"]);
-            var kq = db.NHAXUATBANs.Where(nxb=>nxb.MaNXB == id).SingleOrDefault();
+            var kq = db.NHAXUATBANs.Where(nxb => nxb.MaNXB == id).SingleOrDefault();
             return View(kq);
         }
         [HttpGet]
@@ -31,13 +31,13 @@ namespace NguyenDucAnh.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Luu(FormCollection f) 
+        public ActionResult Luu(FormCollection f)
         {
             NHAXUATBAN nxb = new NHAXUATBAN();
             nxb.TenNXB = f["TenNXB"];
             nxb.DiaChi = f["DiaChi"];
             nxb.DienThoai = f["DienThoai"];
-            
+
             db.NHAXUATBANs.Add(nxb);
             db.SaveChanges();
             return View("Create");
@@ -45,16 +45,31 @@ namespace NguyenDucAnh.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(NHAXUATBAN nxb)
         {
-           
+
             db.NHAXUATBANs.Add(nxb);
             db.SaveChanges();
             return RedirectToAction("Index", "NhaXuatBan");
         }
-
+        public NHAXUATBAN GetNHAXUATBAN(int id)
+        {
+            return db.NHAXUATBANs.Where(nxb => nxb.MaNXB == id).SingleOrDefault();
+        }
         [HttpGet]
-        public ActionResult Edit(int id) 
-        { 
-            return View()
+        public ActionResult Edit(int id)
+        {
+
+            return View(GetNHAXUATBAN(id));
+        }
+        [HttpPost]
+        public ActionResult Edit(FormCollection f)
+        {
+            NHAXUATBAN nxb = GetNHAXUATBAN(int.Parse(f["MaNXB"]));
+            nxb.TenNXB = f["TenNXB"];
+            nxb.DiaChi = f["DiaChi"];
+            nxb.DienThoai = f["DienThoai"];
+
+            db.SaveChanges();
+            return RedirectToAction("Index", "NhaXuatBan");
         }
     }
 }
