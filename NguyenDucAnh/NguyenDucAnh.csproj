@@ -129,6 +129,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\FileAndMailController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhaXuatBanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -166,6 +168,7 @@
     <Compile Include="Models\KHACHHANG.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Mail.cs" />
     <Compile Include="Models\NHAXUATBAN.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
@@ -245,6 +248,7 @@
     <Content Include="Images\thu1.jpg" />
     <Content Include="Images\TiengAnh01.jpg" />
     <Content Include="Images\xehang.gif" />
+    <Content Include="LuotTruyCap.txt" />
     <Content Include="Models\db.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>db.Context.cs</LastGenOutput>
@@ -275,6 +279,8 @@
     <Content Include="Areas\Admin\Views\NhaXuatBan\Details.cshtml" />
     <Content Include="Areas\Admin\Views\NhaXuatBan\Create.cshtml" />
     <Content Include="Areas\Admin\Views\NhaXuatBan\Edit.cshtml" />
+    <Content Include="Views\FileAndMail\SendMail.cshtml" />
+    <Content Include="Views\User\DangNhap.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -315,6 +321,7 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Home\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="UploadFile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

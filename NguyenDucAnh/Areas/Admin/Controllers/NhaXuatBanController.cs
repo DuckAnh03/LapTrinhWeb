@@ -63,7 +63,7 @@ namespace NguyenDucAnh.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(FormCollection f)
         {
-            NHAXUATBAN nxb = GetNHAXUATBAN(int.Parse(f["MaNXB"]));
+            var nxb = GetNHAXUATBAN(int.Parse(f["MaNXB"]));
             nxb.TenNXB = f["TenNXB"];
             nxb.DiaChi = f["DiaChi"];
             nxb.DienThoai = f["DienThoai"];
